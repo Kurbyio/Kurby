@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using vancil.Framework.Account;
 using vancil.Models;
 using vancil.ViewModels.Account;
 
@@ -32,9 +33,9 @@ namespace vancil.Controllers.Account
                 User user = new User();
                 user.Email = model.Email;
 
-                PasswordHasher<string> pw = new PasswordHasher<string>();
+                PasswordManager pw = new PasswordManager();
 
-                user.Password = pw.HashPassword(model.Email, model.Password);
+                user.Password = pw.Hash(user.Email, model.Password);
 
                 db.Users.Add(user);
                 db.SaveChanges();
@@ -55,8 +56,8 @@ namespace vancil.Controllers.Account
             bool isUservalid = false;
             User user = db.Users.Where(usr => usr.Email == model.Email).SingleOrDefault();
 
-            PasswordHasher<string> pw = new PasswordHasher<string>();
-            var isPassword = pw.VerifyHashedPassword(user.Email, user.Password, model.Password);            
+            PasswordManager pw = new PasswordManager();
+            var isPassword = pw.Verify(user.Email, user.Password, model.Password);            
 
             if(isPassword == PasswordVerificationResult.Success)
             {
