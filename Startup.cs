@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using vancil.App;
 using vancil.Framework.Account;
 using vancil.Framework.Helpers.DatabaseHelper;
 using vancil.Models;
@@ -29,9 +30,9 @@ namespace vancil
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Scoped Classes
-            services.AddScoped<AuthorizedUser>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            // Pull in scopes, singletons, transients from config
+            new ServicesConfiguration().SetServices(services);
+            
             //Handle Databases
             var databaseType = Configuration.GetSection("Database:DatabaseType");
             
