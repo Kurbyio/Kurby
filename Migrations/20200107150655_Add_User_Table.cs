@@ -17,6 +17,7 @@ namespace vancil.Migrations
                     Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
+                    HashID = table.Column<Guid>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
@@ -24,6 +25,12 @@ namespace vancil.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -25,6 +26,11 @@ namespace vancil.Controllers.Account
             return View();
         }
 
+        /// <summary>
+        /// Registers a new user
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
@@ -34,8 +40,10 @@ namespace vancil.Controllers.Account
                 user.Email = model.Email;
 
                 PasswordManager pw = new PasswordManager();
-
-                user.Password = pw.Hash(user.Email, model.Password);
+                // Unique ID used for hashing
+                var hashId = Guid.NewGuid();
+                user.HashID = hashId;
+                user.Password = pw.Hash(hashId, model.Password);
 
                 db.Users.Add(user);
                 db.SaveChanges();
@@ -50,6 +58,12 @@ namespace vancil.Controllers.Account
             return View();
         }
 
+        /// <summary>
+        /// Processes user login
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Login(LoginViewModel model,string returnUrl)
         {
@@ -57,7 +71,7 @@ namespace vancil.Controllers.Account
             User user = db.Users.Where(usr => usr.Email == model.Email).SingleOrDefault();
 
             PasswordManager pw = new PasswordManager();
-            var isPassword = pw.Verify(user.Email, user.Password, model.Password);            
+            var isPassword = pw.Verify(user.HashID, user.Password, model.Password);            
 
             if(isPassword == PasswordVerificationResult.Success)
             {
@@ -90,6 +104,10 @@ namespace vancil.Controllers.Account
             return View();
         }
 
+        /// <summary>
+        /// Handles logout
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Logout()
         {

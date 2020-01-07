@@ -9,7 +9,7 @@ using vancil.Models;
 namespace vancil.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200106040122_Add_User_Table")]
+    [Migration("20200107150655_Add_User_Table")]
     partial class Add_User_Table
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,10 @@ namespace vancil.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.Property<Guid>("HashID")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -43,6 +46,9 @@ namespace vancil.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });

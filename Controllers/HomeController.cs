@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using vancil.Framework.Account;
 using vancil.Models;
 
 namespace vancil.Controllers
@@ -14,18 +15,20 @@ namespace vancil.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AuthorizedUser _authorizedUser;
         private AppDbContext db;
-        public HomeController(ILogger<HomeController> logger, AppDbContext db)
+        public HomeController(ILogger<HomeController> logger, AppDbContext db, AuthorizedUser authorizedUser)
         {
             _logger = logger;
             this.db = db;
+            _authorizedUser = authorizedUser;
+
         }
 
         [Authorize]
         public IActionResult Index()
         {
-            var test = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            vancil.Models.User user = db.Users.FirstOrDefault(u => u.Id == Int32.Parse(test));
+            var user = _authorizedUser.GetUser();
 
             string userName = HttpContext.User.FindFirstValue(ClaimTypes.Email);
 

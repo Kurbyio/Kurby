@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Identity;
 
 namespace vancil.Framework.Account
@@ -10,11 +11,11 @@ namespace vancil.Framework.Account
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public string Hash(string user, string password)
+        public string Hash(Guid user, string password)
         {
             PasswordHasher<string> pw = new PasswordHasher<string>();
 
-            return pw.HashPassword(user, password);
+            return pw.HashPassword(user.ToString(), password);
         }
 
         /// <summary>
@@ -24,11 +25,11 @@ namespace vancil.Framework.Account
         /// <param name="password"></param>
         /// <param name="suppliedPassword"></param>
         /// <returns></returns>
-        public PasswordVerificationResult Verify(string user, string password, string suppliedPassword)
+        public PasswordVerificationResult Verify(Guid user, string password, string suppliedPassword)
         {
             PasswordHasher<string> pw = new PasswordHasher<string>();
 
-            return pw.VerifyHashedPassword(user, password, suppliedPassword);            
+            return pw.VerifyHashedPassword(user.ToString(), password, suppliedPassword);            
         }
     }
 }

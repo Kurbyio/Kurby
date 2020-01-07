@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using vancil.Framework.Account;
 using vancil.Framework.Helpers.DatabaseHelper;
 using vancil.Models;
 
@@ -27,6 +29,9 @@ namespace vancil
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Scoped Classes
+            services.AddScoped<AuthorizedUser>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //Handle Databases
             var databaseType = Configuration.GetSection("Database:DatabaseType");
             
