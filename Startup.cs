@@ -57,11 +57,7 @@ namespace vancil
 
             services.AddControllersWithViews();
 
-            /// <summary>
-            /// Sets the option to not allow anonymouse users. Will always send to login page if [AllowAnonymous] is not used on the method
-            /// </summary>
-            /// <param name="AuthorizeFilter("></param>
-            /// <returns></returns>
+            // Sets the option to not allow anonymouse users. Will always send to login page if [AllowAnonymous] is not used on the method
             services.AddMvc(options => options.Filters.Add(new AuthorizeFilter()));
         }        
 
