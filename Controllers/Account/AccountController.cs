@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using vancil.Framework.Account;
@@ -53,6 +54,7 @@ namespace vancil.Controllers.Account
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {
             return View();
@@ -65,6 +67,7 @@ namespace vancil.Controllers.Account
         /// <param name="returnUrl"></param>
         /// <returns></returns>
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Login(LoginViewModel model,string returnUrl)
         {
             bool isUservalid = false;

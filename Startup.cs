@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,12 +22,14 @@ namespace vancil
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            HostingEnvironment = environment;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment HostingEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,9 +42,27 @@ namespace vancil
             
             services.AddDbContext<AppDbContext>(ConfigureMySQLServer);
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = HostingEnvironment.IsDevelopment() ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
+                options.Cookie.SameSite = SameSiteMode.Lax;
+                options.Cookie.Name = "Vancil.Cookies";
+            });
+
+            services.Configure<CookiePolicyOptions>(options =>{
+                options.MinimumSameSitePolicy = SameSiteMode.Strict;
+                options.HttpOnly = HttpOnlyPolicy.None;
+                options.Secure = HostingEnvironment.IsDevelopment() ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
+            });
 
             services.AddControllersWithViews();
+
+            /// <summary>
+            /// Sets the option to not allow anonymouse users. Will always send to login page if [AllowAnonymous] is not used on the method
+            /// </summary>
+            /// <param name="AuthorizeFilter("></param>
+            /// <returns></returns>
+            services.AddMvc(options => options.Filters.Add(new AuthorizeFilter()));
         }        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +83,8 @@ namespace vancil
 
             app.UseRouting();
             
+            app.UseCookiePolicy();
+
             app.UseAuthentication();
 
             app.UseAuthorization();
