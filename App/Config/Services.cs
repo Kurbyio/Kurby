@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using vancil.Framework.Account;
 
-namespace vancil.App
+namespace vancil.App.Config
 {
-    public class ServicesConfiguration
+    public class Services
     {
         /// <summary>
         /// Adds dependency injection items to the container
@@ -19,6 +19,7 @@ namespace vancil.App
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // Transients
+            
         }
     }
 }

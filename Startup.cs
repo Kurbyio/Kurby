@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using vancil.App;
+using vancil.App.Config;
 using vancil.Framework.Account;
 using vancil.Framework.Helpers.DatabaseHelper;
 using vancil.Models;
@@ -35,12 +35,12 @@ namespace vancil
         public void ConfigureServices(IServiceCollection services)
         {
             // Pull in scopes, singletons, transients from config
-            new ServicesConfiguration().SetServices(services);
+            new Services().SetServices(services);
             
             //Handle Databases
-            var databaseType = Configuration.GetSection("Database:DatabaseType");
+            new Database().SetDatabase(services, Configuration);
             
-            services.AddDbContext<AppDbContext>(ConfigureMySQLServer);
+            
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
                 options.Cookie.HttpOnly = true;
@@ -91,14 +91,6 @@ namespace vancil
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
-
-        private void ConfigureMySQLServer(DbContextOptionsBuilder options)
-        {
-            var connectionStringHelper = new ConnectionStringHelper();
-            var connectionString = connectionStringHelper.CreateConnectionString(Configuration);
-
-            options.UseMySql(connectionString);
-        }
+        }        
     }
 }

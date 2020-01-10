@@ -22,6 +22,7 @@ namespace vancil.Controllers.Account
             this.db = db;
         }
 
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
@@ -33,6 +34,7 @@ namespace vancil.Controllers.Account
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -72,7 +74,7 @@ namespace vancil.Controllers.Account
         {
             bool isUservalid = false;
             User user = db.Users.Where(usr => usr.Email == model.Email).SingleOrDefault();
-
+            
             PasswordManager pw = new PasswordManager();
             var isPassword = pw.Verify(user.HashID, user.Password, model.Password);            
 
