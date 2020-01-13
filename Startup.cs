@@ -35,25 +35,12 @@ namespace vancil
         public void ConfigureServices(IServiceCollection services)
         {
             // Pull in scopes, singletons, transients from config
-            new Services().SetServices(services);
+            services.SetServices();
             
             //Handle Databases
             new Database().SetDatabase(services, Configuration);
-            
-            
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
-                options.Cookie.HttpOnly = true;
-                options.Cookie.SecurePolicy = HostingEnvironment.IsDevelopment() ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
-                options.Cookie.SameSite = SameSiteMode.Lax;
-                options.Cookie.Name = "Vancil.Cookies";
-            });
-
-            services.Configure<CookiePolicyOptions>(options =>{
-                options.MinimumSameSitePolicy = SameSiteMode.Strict;
-                options.HttpOnly = HttpOnlyPolicy.None;
-                options.Secure = HostingEnvironment.IsDevelopment() ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
-            });
+            services.SetCookies();
 
             services.AddControllersWithViews();
 
