@@ -1,13 +1,18 @@
+using vancil.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using vancil.Framework.Helpers.DatabaseHelper;
-using vancil.Models;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace vancil.App.Config
 {
     public class Database
     {
+        /// <summary>
+        /// Creates the database connection based on user input in the appsettings
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
         public void SetDatabase(IServiceCollection services, IConfiguration configuration)
         {
             var databaseType = configuration.GetSection("Database:DatabaseType");
