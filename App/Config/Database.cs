@@ -1,13 +1,18 @@
+using kurby.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using kurby.Framework.Helpers.DatabaseHelper;
 using Microsoft.Extensions.DependencyInjection;
-using vancil.Framework.Helpers.DatabaseHelper;
-using vancil.Models;
 
-namespace vancil.App.Config
+namespace kurby.App.Config
 {
     public class Database
     {
+        /// <summary>
+        /// Creates the database connection based on user input in the appsettings
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
         public void SetDatabase(IServiceCollection services, IConfiguration configuration)
         {
             var databaseType = configuration.GetSection("Database:DatabaseType");

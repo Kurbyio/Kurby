@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using vancil.Models;
+using kurby.Models;
 
-namespace vancil.Migrations
+namespace kurby.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20200107150655_Add_User_Table")]
@@ -19,7 +19,7 @@ namespace vancil.Migrations
                 .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("vancil.Models.User", b =>
+            modelBuilder.Entity("kurby.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

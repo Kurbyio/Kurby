@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace vancil.Models
+namespace kurby.Models
 {
     public class User
     {
@@ -14,6 +14,6 @@ namespace vancil.Models
         public string Password{get;set;}
         public Guid HashID {get;set;}
         public DateTime CreatedAt {get;set;} = DateTime.Now;
-        public DateTime UpdatedAt{get;set;}
+        public DateTime UpdatedAt{get;set;} = DateTime.Now;
     }
 }

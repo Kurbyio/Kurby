@@ -1,4 +1,4 @@
-## How to contribute to Vancil
+## How to contribute to Kurby
 
 #### Did you find a bug?
 
