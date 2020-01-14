@@ -1,30 +1,33 @@
 @model vancil.ViewModels.Account.RegisterViewModel
 
 
-<h1>Register</h1>
-<form asp-controller="Account" asp-action="Register" 
-method="post">
-    <table>
-        <tr>
-            <td><label asp-for="Email"></label></td>
-            <td><input asp-for="Email" /></td>
-        </tr>
-        <tr>
-            <td><label asp-for="Password"></label></td>
-            <td><input asp-for="Password" type="password" /></td>
-        </tr>
-        <tr>
-            <td><label asp-for="ConfirmPassword"></label></td>
-            <td><input asp-for="ConfirmPassword" type="password"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit"
-                       value="Register" />
-            </td>
-        </tr>
-    </table>
-    <div asp-validation-summary="All"></div>
-    <br />
-    <div>@ViewData["message"]</div>
-</form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Register
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Account" asp-action="Register" method="post">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="Email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input type="password" class="form-control" id="Password" name="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="ConfirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword">
+                        </div>                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div>@ViewData["message"]</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
