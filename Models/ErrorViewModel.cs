@@ -1,6 +1,6 @@
 using System;
 
-namespace vancil.Models
+namespace kurby.Models
 {
     public class ErrorViewModel
     {

@@ -1,8 +1,8 @@
-using vancil.Framework.Account;
+using kurby.Framework.Account;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace vancil.App.Config
+namespace kurby.App.Config
 {
     public static class Services
     {

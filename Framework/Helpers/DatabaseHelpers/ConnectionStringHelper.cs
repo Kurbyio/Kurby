@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace vancil.Framework.Helpers.DatabaseHelper
+namespace kurby.Framework.Helpers.DatabaseHelper
 {
     public class ConnectionStringHelper
     {

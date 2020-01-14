@@ -1,17 +1,17 @@
 using System;
 using System.Linq;
-using vancil.Models;
+using kurby.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
-using vancil.Framework.Account;
-using vancil.ViewModels.Account;
+using kurby.Framework.Account;
+using kurby.ViewModels.Account;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace vancil.Controllers.Account
+namespace kurby.Controllers.Account
 {
     public class AccountController : Controller
     {

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace vancil.Models
+namespace kurby.Models
 {
     public class User
     {

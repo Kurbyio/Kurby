@@ -1,10 +1,10 @@
-using vancil.Models;
+using kurby.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using vancil.Framework.Helpers.DatabaseHelper;
+using kurby.Framework.Helpers.DatabaseHelper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace vancil.App.Config
+namespace kurby.App.Config
 {
     public class Database
     {
