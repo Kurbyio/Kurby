@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
-using vancil.Models;
+using kurby.Models;
 
-namespace vancil.Framework.Account
+namespace kurby.Framework.Account
 {
     public class AuthorizedUser
     {
@@ -17,9 +17,9 @@ namespace vancil.Framework.Account
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public vancil.Models.User GetUser()
+        public kurby.Models.User GetUser()
         {        
-            vancil.Models.User user = null;   
+            kurby.Models.User user = null;   
             if(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) != null){
                 user = db.Users.FirstOrDefault(u => u.Id == Int32.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)));
             }          

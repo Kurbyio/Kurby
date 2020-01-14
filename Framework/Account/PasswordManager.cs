@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Identity;
 
-namespace vancil.Framework.Account
+namespace kurby.Framework.Account
 {
     public class PasswordManager
     {

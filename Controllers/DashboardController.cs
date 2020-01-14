@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace vancil.Controllers
+namespace kurby.Controllers
 {
     public class DashboardController : Controller
     {

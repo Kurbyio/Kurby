@@ -13,12 +13,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using vancil.App.Config;
-using vancil.Framework.Account;
-using vancil.Framework.Helpers.DatabaseHelper;
-using vancil.Models;
+using kurby.App.Config;
+using kurby.Framework.Account;
+using kurby.Framework.Helpers.DatabaseHelper;
+using kurby.Models;
 
-namespace vancil
+namespace kurby
 {
     public class Startup
     {

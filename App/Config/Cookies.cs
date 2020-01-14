@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace vancil.App.Config
+namespace kurby.App.Config
 {
     public static class Cookies
     {
@@ -18,7 +18,7 @@ namespace vancil.App.Config
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
                 options.Cookie.SameSite = SameSiteMode.Lax;
-                options.Cookie.Name = "Vancil.Cookies";
+                options.Cookie.Name = "kurby.Cookies";
             });
 
             services.Configure<CookiePolicyOptions>(options =>{

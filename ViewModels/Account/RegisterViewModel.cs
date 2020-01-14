@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace vancil.ViewModels.Account
+namespace kurby.ViewModels.Account
 {
     public class RegisterViewModel
     {
