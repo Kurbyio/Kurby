@@ -44,6 +44,8 @@ namespace kurby
 
             services.AddControllersWithViews();
 
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+
             // Sets the option to not allow anonymouse users. Will always send to login page if [AllowAnonymous] is not used on the method
             services.AddMvc(options => options.Filters.Add(new AuthorizeFilter()));
         }        

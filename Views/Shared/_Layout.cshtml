@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,12 +13,12 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">kurby</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@Configuration["ApplicationName"]</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="navbar-collapse collapse">
                     <ul class="navbar-nav">
                         @if(!Context.User.Identity.IsAuthenticated) {
                             <li class="nav-item">
@@ -39,7 +41,12 @@
                                 Account
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
-                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Logout" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+
+                                    <form id="logout-form" asp-controller="Account" asp-action="Logout" method="POST" style="display: none;">
+                                        
+                                    </form>
                                 </div>
                             </li>
                         }
