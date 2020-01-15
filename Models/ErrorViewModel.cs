@@ -1,6 +1,6 @@
 using System;
 
-namespace kurby.Models
+namespace Kurby.Models
 {
     public class ErrorViewModel
     {

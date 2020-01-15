@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using kurby.Framework.Account;
-using kurby.Models;
+using Kurby.Framework.Account;
+using Kurby.Models;
 
-namespace kurby.Controllers
+namespace Kurby.Controllers
 {
     public class HomeController : Controller
     {

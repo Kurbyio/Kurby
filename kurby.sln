@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kurby", "kurby.csproj", "{416261BE-BAF2-4D76-9C2C-535C5CCB9AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kurby", "Kurby.csproj", "{416261BE-BAF2-4D76-9C2C-535C5CCB9AEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

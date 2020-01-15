@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using kurby.Models;
+using Kurby.Models;
 
-namespace kurby.Migrations
+namespace Kurby.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20200107150655_Add_User_Table")]

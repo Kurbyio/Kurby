@@ -13,12 +13,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using kurby.App.Config;
-using kurby.Framework.Account;
-using kurby.Framework.Helpers.DatabaseHelper;
-using kurby.Models;
+using Kurby.App.Config;
+using Kurby.Framework.Account;
+using Kurby.Framework.Helpers.DatabaseHelper;
+using Kurby.Models;
 
-namespace kurby
+namespace Kurby
 {
     public class Startup
     {
