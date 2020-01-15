@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Identity;
 
-namespace kurby.Framework.Account
+namespace Kurby.Framework.Account
 {
     public class PasswordManager
     {

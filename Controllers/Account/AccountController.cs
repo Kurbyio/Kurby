@@ -1,17 +1,17 @@
 using System;
 using System.Linq;
-using kurby.Models;
+using Kurby.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
-using kurby.Framework.Account;
-using kurby.ViewModels.Account;
+using Kurby.Framework.Account;
+using Kurby.ViewModels.Account;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace kurby.Controllers.Account
+namespace Kurby.Controllers.Account
 {
     public class AccountController : Controller
     {

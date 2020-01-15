@@ -1,10 +1,10 @@
-using kurby.Models;
+using Kurby.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using kurby.Framework.Helpers.DatabaseHelper;
+using Kurby.Framework.Helpers.DatabaseHelper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace kurby.App.Config
+namespace Kurby.App.Config
 {
     public class Database
     {

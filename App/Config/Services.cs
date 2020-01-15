@@ -1,8 +1,8 @@
-using kurby.Framework.Account;
+using Kurby.Framework.Account;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace kurby.App.Config
+namespace Kurby.App.Config
 {
     public static class Services
     {
@@ -13,7 +13,7 @@ namespace kurby.App.Config
         public static void SetServices(this IServiceCollection services)
         {
             // Scopes
-            services.AddScoped<AuthorizedUser>();
+            services.AddScoped<AuthUser>();
 
             // Singletons
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace kurby.Migrations
+namespace Kurby.Migrations
 {
     public partial class Add_User_Table : Migration
     {

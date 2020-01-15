@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace kurby.App.Config
+namespace Kurby.App.Config
 {
     public static class Cookies
     {

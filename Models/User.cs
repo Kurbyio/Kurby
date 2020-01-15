@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace kurby.Models
+namespace Kurby.Models
 {
     public class User
     {

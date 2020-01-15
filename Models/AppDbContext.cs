@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace kurby.Models
+namespace Kurby.Models
 {
     public class AppDbContext : DbContext
     {
