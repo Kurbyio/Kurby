@@ -3,7 +3,7 @@ using System.Linq;
 using Kurby.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
-using Kurby.Framework.Account;
+using Kurby.Internals.Auth;
 using Kurby.ViewModels.Account;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
