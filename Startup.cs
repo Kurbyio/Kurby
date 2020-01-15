@@ -14,9 +14,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Kurby.App.Config;
-using Kurby.Framework.Account;
-using Kurby.Framework.Helpers.DatabaseHelper;
-using Kurby.Models;
 
 namespace Kurby
 {
