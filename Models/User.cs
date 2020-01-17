@@ -12,7 +12,6 @@ namespace Kurby.Models
         public string Email {get;set;}
         [Required]
         public string Password{get;set;}
-        public Guid HashID {get;set;}
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt{get;set;} = DateTime.Now;
     }

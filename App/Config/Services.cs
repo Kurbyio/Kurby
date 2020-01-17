@@ -14,6 +14,7 @@ namespace Kurby.App.Config
         {
             // Scopes
             services.AddScoped<AuthManager>();
+            services.AddScoped<PasswordManager>();
 
             // Singletons
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
