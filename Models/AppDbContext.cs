@@ -10,7 +10,7 @@ namespace Kurby.Models
         { }
 
         protected override void OnModelCreating(ModelBuilder builder)
-{
+        {
             // Handles duplicate entry for email in user table
             builder.Entity<User>()
                 .HasIndex(u => u.Email)
