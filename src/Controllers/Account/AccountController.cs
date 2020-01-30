@@ -3,7 +3,7 @@ using System.Linq;
 using Kurby.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
-using Kurby.Framework.Account;
+using Kurby.Internals.Auth;
 using Kurby.ViewModels.Account;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
@@ -16,10 +16,12 @@ namespace Kurby.Controllers.Account
     public class AccountController : Controller
     {
         private AppDbContext db;
+        private PasswordManager _passwordManager;
 
-        public AccountController(AppDbContext db)
+        public AccountController(AppDbContext db, PasswordManager passwordManager)
         {
             this.db = db;
+            _passwordManager = passwordManager;
         }
 
         [AllowAnonymous]
@@ -41,12 +43,7 @@ namespace Kurby.Controllers.Account
             {
                 User user = new User();
                 user.Email = model.Email;
-
-                PasswordManager pw = new PasswordManager();
-                // Unique ID used for hashing
-                var hashId = Guid.NewGuid();
-                user.HashID = hashId;
-                user.Password = pw.Hash(hashId, model.Password);
+                user.Password = _passwordManager.Hash(model.Password);
 
                 db.Users.Add(user);
                 db.SaveChanges();
@@ -73,10 +70,9 @@ namespace Kurby.Controllers.Account
         public IActionResult Login(LoginViewModel model,string returnUrl)
         {
             bool isUservalid = false;
-            User user = db.Users.Where(usr => usr.Email == model.Email).SingleOrDefault();
+            User user = db.Users.Where(usr => usr.Email == model.Email).FirstOrDefault();            
             
-            PasswordManager pw = new PasswordManager();
-            var isPassword = pw.Verify(user.HashID, user.Password, model.Password);            
+            var isPassword = _passwordManager.Verify(user.Password, model.Password);            
 
             if(isPassword == PasswordVerificationResult.Success)
             {

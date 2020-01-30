@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace Kurby.Framework.Helpers.DatabaseHelper
+namespace Kurby.Internals.Helpers.DatabaseHelper
 {
     public class ConnectionStringHelper
     {

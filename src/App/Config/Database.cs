@@ -1,7 +1,7 @@
 using Kurby.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Kurby.Framework.Helpers.DatabaseHelper;
+using Kurby.Internals.Helpers.DatabaseHelper;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Kurby.App.Config

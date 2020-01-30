@@ -1,25 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kurby", "Kurby.csproj", "{416261BE-BAF2-4D76-9C2C-535C5CCB9AEF}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kurby", "src\Kurby.csproj", "{14446733-515E-447C-B5CB-F2FD05AF399C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{416261BE-BAF2-4D76-9C2C-535C5CCB9AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{416261BE-BAF2-4D76-9C2C-535C5CCB9AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{416261BE-BAF2-4D76-9C2C-535C5CCB9AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{416261BE-BAF2-4D76-9C2C-535C5CCB9AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {323DC2E2-5837-4878-93AC-2C83A46991C4}
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Debug|x64.Build.0 = Debug|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Debug|x86.Build.0 = Debug|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Release|x64.ActiveCfg = Release|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Release|x64.Build.0 = Release|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Release|x86.ActiveCfg = Release|Any CPU
+		{14446733-515E-447C-B5CB-F2FD05AF399C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

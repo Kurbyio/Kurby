@@ -14,9 +14,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Kurby.App.Config;
-using Kurby.Framework.Account;
-using Kurby.Framework.Helpers.DatabaseHelper;
-using Kurby.Models;
 
 namespace Kurby
 {
@@ -43,8 +40,6 @@ namespace Kurby
             services.SetCookies();
 
             services.AddControllersWithViews();
-
-            services.AddRazorPages().AddRazorRuntimeCompilation();
 
             // Sets the option to not allow anonymouse users. Will always send to login page if [AllowAnonymous] is not used on the method
             services.AddMvc(options => options.Filters.Add(new AuthorizeFilter()));
