@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Kurby.Internals.Auth;
 using Microsoft.Extensions.Logging;
 using Kurby.Models;
 
@@ -15,7 +16,7 @@ namespace Kurby.Controllers
     {
         [AllowAnonymous]
         public IActionResult Index()
-        {            
+        { 
             return View();
         }
     }

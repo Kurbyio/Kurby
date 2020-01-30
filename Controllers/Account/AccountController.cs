@@ -70,7 +70,7 @@ namespace Kurby.Controllers.Account
         public IActionResult Login(LoginViewModel model,string returnUrl)
         {
             bool isUservalid = false;
-            User user = db.Users.Where(usr => usr.Email == model.Email).SingleOrDefault();            
+            User user = db.Users.Where(usr => usr.Email == model.Email).FirstOrDefault();            
             
             var isPassword = _passwordManager.Verify(user.Password, model.Password);            
 
