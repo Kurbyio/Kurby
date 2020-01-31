@@ -23,7 +23,7 @@ namespace Kurby.Internals.Auth
         {
             PasswordHasher<string> pw = new PasswordHasher<string>();
 
-            return pw.HashPassword(Configuration.GetSection("ApplicationKey").ToString(), password);
+            return pw.HashPassword(Configuration.GetSection("Kurby:ApplicationKey").ToString(), password);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Kurby.Internals.Auth
         {
             PasswordHasher<string> pw = new PasswordHasher<string>();
 
-            return pw.VerifyHashedPassword(Configuration.GetSection("ApplicationKey").ToString(), password, suppliedPassword);            
+            return pw.VerifyHashedPassword(Configuration.GetSection("Kurby:ApplicationKey").ToString(), password, suppliedPassword);            
         }
     }
 }

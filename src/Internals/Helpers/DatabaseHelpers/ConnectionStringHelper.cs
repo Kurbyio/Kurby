@@ -7,10 +7,10 @@ namespace Kurby.Internals.Helpers.DatabaseHelper
         
         public string CreateConnectionString(IConfiguration configuration)
         {
-            var host = configuration.GetSection("Database:DatabaseHost");
-            var name = configuration.GetSection("Database:DatabaseName");
-            var user = configuration.GetSection("Database:DatabaseUser");
-            var password = configuration.GetSection("Database:DatabasePass");
+            var host = configuration.GetSection("Kurby:Database:DatabaseHost");
+            var name = configuration.GetSection("Kurby:Database:DatabaseName");
+            var user = configuration.GetSection("Kurby:Database:DatabaseUser");
+            var password = configuration.GetSection("Kurby:Database:DatabasePass");
 
             return "Server=" + host.Value + ";Database=" + name.Value + ";User Id=" + user.Value + ";Password=" + password.Value;
         }

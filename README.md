@@ -1,3 +1,5 @@
+![.NET Core](https://github.com/Kurbyio/Kurby/workflows/.NET%20Core/badge.svg)
+
 # Kurby
 A .Net Core MVC Framework
 
